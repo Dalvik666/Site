@@ -10,12 +10,16 @@
  <?php
 
     $sql = mysql_query("SELECT `ID`, `Name`, `code`, `price` FROM `products`", $link);
-	$price = $result['price'];
+	
+	$sq = mysql_query("SELECT MIN (`price`) FROM `products`", $link);
 	while ($result = mysql_fetch_array($sql)) {	
 	
 	
         echo '<table>'.$result['ID'].": ".$result['Name'].": code: ".$result['code']." price: ".$result['price']." рублей".'</table>'."<br />";
+		
     }
+	
+echo "Min - ".$sq['price'];
 	
 	
 
