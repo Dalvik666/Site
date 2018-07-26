@@ -9,9 +9,9 @@
 
  <?php
 
-    $sql = mysql_query("SELECT `ID`, `Name`, `code`, `price` FROM `products`", $link);
+    $sql = mysql_query("SELECT ID, Name, code, price FROM products", $link);
 	
-	$sq = mysql_query("SELECT MIN (`price`) FROM `products`", $link);
+	$sq = mysql_query("SELECT MIN(price) FROM products", $link);
 	while ($result = mysql_fetch_array($sql)) {	
 	
 	
@@ -19,7 +19,14 @@
 		
     }
 	
-echo "Min - ".$sq['price'];
+	
+	while ($result = mysql_fetch_array($sq)) {	
+	
+	
+        echo '<table>'."Minimal price - ".$result['MIN(price)']." рублей".'</table>'."<br />";
+		
+    }
+
 	
 	
 
